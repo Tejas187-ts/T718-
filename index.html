@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>T718 — Creative Freelancer</title>
+<meta name="description" content="T718 — Freelancer portfolio: websites, ads, banners, logos, templates, thumbnails and digital creative work.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#f4f6fb;--surface:#ffffff;--surface-2:#f8fafc;--border:#e5e9f2;
+  --text:#1a2233;--text-2:#5b6577;--text-3:#8a94a6;
+  --primary:#6366f1;--primary-grad:linear-gradient(135deg,#6366f1,#8b5cf6);
+  --green:#10b981;--green-grad:linear-gradient(135deg,#10b981,#34d399);
+  --blue:#3b82f6;--blue-grad:linear-gradient(135deg,#3b82f6,#60a5fa);
+  --radius:18px;
+  --shadow-sm:0 1px 3px rgba(16,24,40,.06),0 1px 2px rgba(16,24,40,.04);
+  --shadow-md:0 8px 24px -6px rgba(16,24,40,.10),0 2px 6px -2px rgba(16,24,40,.06);
+  --shadow-lg:0 24px 48px -12px rgba(16,24,40,.18);
+  --shadow-glow:0 8px 24px -6px rgba(99,102,241,.45);
+}
+html{scroll-behavior:smooth;scroll-padding-top:86px}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);
+  -webkit-font-smoothing:antialiased;min-height:100vh;overflow-x:hidden}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+input,textarea{font-family:inherit;font-size:14px;color:var(--text)}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+::placeholder{color:var(--text-3)}
+::selection{background:rgba(99,102,241,.2)}
+::-webkit-scrollbar{width:9px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:#c9d1e0;border-radius:99px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:13px;
+  font-size:14px;font-weight:600;transition:transform .16s,box-shadow .22s;white-space:nowrap}
+.btn:active{transform:scale(.96)}
+.btn-primary{background:var(--primary-grad);color:#fff;box-shadow:var(--shadow-glow)}
+.btn-primary:hover{transform:translateY(-3px)}
+.btn-green{background:var(--green-grad);color:#fff;box-shadow:0 8px 20px -6px rgba(16,185,129,.4)}
+.btn-green:hover{transform:translateY(-3px)}
+.btn-blue{background:var(--blue-grad);color:#fff;box-shadow:0 8px 20px -6px rgba(59,130,246,.4)}
+.btn-blue:hover{transform:translateY(-3px)}
+.btn-ghost{background:rgba(255,255,255,.8);color:var(--text);border:1.5px solid var(--border)}
+.btn-ghost:hover{border-color:var(--primary);color:var(--primary);transform:translateY(-3px)}
+.btn-sm{padding:9px 16px;font-size:13px;border-radius:11px}
+.header{position:fixed;top:0;left:0;right:0;z-index:100}
+.header .bar{display:flex;align-items:center;gap:18px;max-width:1280px;margin:0 auto;padding:14px 24px;
+  background:rgba(255,255,255,.78);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.65);
+  border-radius:0 0 22px 22px;box-shadow:var(--shadow-md)}
+.logo{display:flex;align-items:center;gap:11px;font-weight:900;font-size:19px;letter-spacing:-.5px}
+.logo .mark{width:38px;height:38px;border-radius:12px;background:var(--primary-grad);color:#fff;display:flex;
+  align-items:center;justify-content:center;font-size:15px;box-shadow:var(--shadow-glow)}
+.nav{display:flex;align-items:center;gap:4px;margin-left:8px}
+.nav a{padding:9px 15px;border-radius:11px;font-size:14px;font-weight:600;color:var(--text-2);transition:.18s}
+.nav a:hover{background:var(--surface-2);color:var(--text)}
+.nav a.active{background:linear-gradient(135deg,rgba(99,102,241,.12),rgba(139,92,246,.12));color:var(--primary)}
+.header-actions{display:flex;align-items:center;gap:10px;margin-left:auto}
+.hsearch{position:relative}
+.hsearch input{width:190px;padding:10px 13px 10px 38px;border:1.5px solid var(--border);border-radius:12px;
+  background:var(--surface-2);outline:none;transition:.2s;font-size:13.5px}
+.hsearch input:focus{width:240px;border-color:var(--primary);background:#fff;box-shadow:0 0 0 4px rgba(99,102,241,.12)}
+.hsearch .s-ico{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--text-3);font-size:15px;pointer-events:none}
+.burger{display:none;width:42px;height:42px;border-radius:12px;background:var(--surface);border:1px solid var(--border);
+  font-size:19px;align-items:center;justify-content:center}
+.mobile-menu{display:none;position:fixed;top:76px;left:14px;right:14px;z-index:99;background:rgba(255,255,255,.94);
+  backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow-lg);
+  padding:14px;flex-direction:column;gap:4px;animation:fadeUp .25s ease both}
+.mobile-menu.open{display:flex}
+.mobile-menu a{padding:12px 16px;border-radius:12px;font-size:15px;font-weight:600;color:var(--text-2)}
+.mobile-menu a:hover{background:var(--surface-2);color:var(--primary)}
+.mobile-menu .mm-actions{display:flex;gap:10px;padding:10px 6px 4px}
+.mobile-menu .mm-actions .btn{flex:1}
+.hero{position:relative;padding:150px 24px 70px;overflow:hidden;
+  background:radial-gradient(1000px 500px at 85% -10%,rgba(139,92,246,.12),transparent 60%),
+             radial-gradient(800px 400px at 5% 20%,rgba(99,102,241,.12),transparent 60%),var(--bg)}
+.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--border);
+  padding:8px 16px;border-radius:99px;font-size:12.5px;font-weight:600;color:var(--primary);box-shadow:var(--shadow-sm);margin-bottom:20px}
+.hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(16,185,129,.5)}50%{box-shadow:0 0 0 6px rgba(16,185,129,0)}}
+.hero h1{font-size:clamp(34px,5vw,56px);font-weight:900;letter-spacing:-1.5px;line-height:1.08;margin-bottom:16px}
+.hero h1 .grad{background:var(--primary-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero .sub{font-size:clamp(15px,2vw,18px);color:var(--text-2);line-height:1.65;margin-bottom:28px;max-width:520px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:34px}
+.hero-stats{display:flex;gap:14px;flex-wrap:wrap}
+.hstat{background:rgba(255,255,255,.85);backdrop-filter:blur(10px);border:1px solid var(--border);border-radius:16px;
+  padding:14px 20px;box-shadow:var(--shadow-sm);min-width:110px}
+.hstat .n{font-size:22px;font-weight:800}
+.hstat .l{font-size:11px;font-weight:600;color:var(--text-3);text-transform:uppercase;letter-spacing:.7px;margin-top:2px}
+.hero-visual{position:relative;perspective:1200px}
+.dash-card{background:rgba(255,255,255,.85);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.7);
+  border-radius:22px;box-shadow:var(--shadow-lg);padding:22px;transform:rotateY(-8deg) rotateX(4deg);transition:transform .4s}
+.hero-visual:hover .dash-card{transform:rotateY(-3deg) rotateX(1deg)}
+.dash-card .dc-head{display:flex;align-items:center;gap:8px;margin-bottom:16px}
+.dash-card .dc-head .cir{width:11px;height:11px;border-radius:50%}
+.dc-title{font-size:12px;font-weight:700;color:var(--text-3);margin-left:6px;letter-spacing:.5px;text-transform:uppercase}
+.dc-row{display:flex;align-items:center;gap:12px;background:var(--surface-2);border:1px solid var(--border);
+  border-radius:14px;padding:12px 14px;margin-bottom:10px;transition:.2s}
+.dc-row:hover{border-color:var(--primary);transform:translateX(4px)}
+.dc-row .ic{width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:17px;color:#fff;flex-shrink:0}
+.dc-row .tx{flex:1;min-width:0}
+.dc-row .tx b{display:block;font-size:13.5px;font-weight:700}
+.dc-row .tx span{font-size:11.5px;color:var(--text-3);font-weight:500}
+.dc-row .arrow{color:var(--text-3);font-size:14px}
+.float-chip{position:absolute;background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow-md);
+  padding:10px 15px;font-size:12px;font-weight:700;display:flex;align-items:center;gap:8px;animation:floaty 5s ease-in-out infinite}
+.float-chip.fc1{top:-16px;right:-8px;color:var(--primary)}
+.float-chip.fc2{bottom:-14px;left:-14px;color:var(--green);animation-delay:-2.5s}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.search-dock{display:none;max-width:1100px;margin:0 auto;padding:0 24px 10px}
+.search-dock.show{display:block;animation:fadeUp .3s ease both}
+.search-dock .box{background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-lg);padding:20px}
+.search-dock .head{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.search-dock .head h3{font-size:15px;font-weight:800;flex:1}
+.search-dock .head .q{color:var(--primary)}
+.search-dock .close-x{width:32px;height:32px;border-radius:9px;background:var(--surface-2);color:var(--text-2);font-size:14px;transition:.18s}
+.search-dock .close-x:hover{background:#fee2e2;color:var(--red)}
+#searchResults{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;max-height:430px;overflow-y:auto;padding-right:4px}
+.no-results{text-align:center;padding:34px 10px;font-size:15px;font-weight:600;color:var(--text-3)}
+.section{max-width:1280px;margin:0 auto;padding:56px 24px}
+.section-head{margin-bottom:26px}
+.section-head .kicker{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;text-transform:uppercase;
+  letter-spacing:1.2px;color:var(--primary);background:rgba(99,102,241,.09);padding:6px 14px;border-radius:99px;margin-bottom:12px}
+.section-head h2{font-size:clamp(24px,3.4vw,34px);font-weight:900;letter-spacing:-.8px;display:flex;align-items:center;gap:13px;flex-wrap:wrap}
+.section-head h2 .em{font-size:clamp(26px,3.4vw,36px)}
+.section-head p{color:var(--text-2);font-size:14.5px;line-height:1.65;margin-top:8px;max-width:560px}
+.count-pill{background:var(--primary-grad);color:#fff;font-size:12px;font-weight:700;padding:5px 13px;border-radius:99px;box-shadow:var(--shadow-glow)}
+.cat-section{background:var(--surface);border:1px solid var(--border);border-radius:24px;box-shadow:var(--shadow-sm);padding:30px;margin-bottom:26px;transition:.25s}
+.cat-section:hover{box-shadow:var(--shadow-md)}
+.cat-top{display:flex;align-items:center;gap:14px;margin-bottom:8px;flex-wrap:wrap}
+.cat-ico{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:21px;color:#fff;flex-shrink:0}
+.cat-top h3{font-size:19px;font-weight:800}
+.cat-desc{color:var(--text-2);font-size:13.5px;line-height:1.6;margin-bottom:20px;max-width:640px}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+.p-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);
+  transition:transform .22s,box-shadow .25s;display:flex;flex-direction:column;cursor:pointer;animation:fadeUp .45s ease both}
+.p-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.p-img{height:180px;background:var(--surface-2);position:relative;overflow:hidden}
+.p-img img{width:100%;height:100%;object-fit:cover;transition:transform .45s}
+.p-card:hover .p-img img{transform:scale(1.06)}
+.p-body{padding:16px;flex:1;display:flex;flex-direction:column}
+.p-title{font-size:15px;font-weight:700;margin-bottom:6px}
+.p-desc{font-size:13px;color:var(--text-2);line-height:1.55;flex:1;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.p-foot{padding:13px 16px;border-top:1px solid var(--border);background:var(--surface-2)}
+.empty-state{text-align:center;padding:44px 18px;border:2px dashed var(--border);border-radius:var(--radius);background:var(--surface-2)}
+.empty-state .big{font-size:42px;margin-bottom:10px}
+.empty-state h4{color:var(--text-2);font-size:15px;font-weight:700;margin-bottom:5px}
+.empty-state p{color:var(--text-3);font-size:13px;line-height:1.6;max-width:380px;margin:0 auto}
+.load-error{display:none;background:#fffbeb;border:1.5px solid #fde68a;color:#92400e;border-radius:var(--radius);
+  padding:18px 22px;font-size:13.5px;line-height:1.7;margin-bottom:26px}
+.load-error.show{display:block}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+.about-card{background:var(--surface);border:1px solid var(--border);border-radius:24px;box-shadow:var(--shadow-sm);padding:30px}
+.about-card h3{font-size:18px;font-weight:800;margin-bottom:12px;display:flex;align-items:center;gap:9px}
+.about-card p{color:var(--text-2);font-size:14px;line-height:1.75;margin-bottom:12px}
+.svc-list{display:flex;flex-direction:column;gap:10px;margin-top:6px}
+.svc-item{display:flex;align-items:center;gap:12px;background:var(--surface-2);border:1px solid var(--border);
+  border-radius:13px;padding:12px 15px;transition:.18s}
+.svc-item:hover{border-color:var(--primary);transform:translateX(5px)}
+.svc-item .ic{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;color:#fff;flex-shrink:0}
+.svc-item b{font-size:13.5px;font-weight:700}
+.svc-item span{display:block;font-size:12px;color:var(--text-3)}
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+.contact-card{background:var(--surface);border:1px solid var(--border);border-radius:24px;box-shadow:var(--shadow-sm);padding:32px}
+.contact-card h3{font-size:18px;font-weight:800;margin-bottom:8px}
+.contact-card > p{color:var(--text-2);font-size:13.5px;line-height:1.65;margin-bottom:22px}
+.contact-rows{display:flex;flex-direction:column;gap:12px;margin-bottom:24px}
+.contact-row{display:flex;align-items:center;gap:14px;background:var(--surface-2);border:1.5px solid var(--border);
+  border-radius:15px;padding:15px 17px;transition:.2s}
+.contact-row:hover{border-color:var(--primary);transform:translateY(-2px);box-shadow:var(--shadow-sm)}
+.contact-row .ic{width:44px;height:44px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:19px;color:#fff;flex-shrink:0}
+.contact-row .tx{flex:1}
+.contact-row .tx span{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--text-3)}
+.contact-row .tx b{font-size:15px;font-weight:800}
+.contact-btns{display:flex;gap:12px;flex-wrap:wrap}
+.wa-note{margin-top:16px;font-size:12px;color:var(--text-3);line-height:1.6;background:var(--surface-2);
+  border:1px dashed var(--border);border-radius:12px;padding:12px 15px}
+.contact-visual{background:linear-gradient(135deg,#6366f1,#8b5cf6);border-radius:24px;padding:34px;color:#fff;
+  display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;box-shadow:var(--shadow-glow)}
+.contact-visual::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.12)}
+.contact-visual::after{content:'';position:absolute;bottom:-80px;left:-40px;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.08)}
+.contact-visual h3{font-size:clamp(22px,3vw,30px);font-weight:900;letter-spacing:-.7px;margin-bottom:12px;position:relative;z-index:1}
+.contact-visual p{font-size:14.5px;line-height:1.7;opacity:.9;margin-bottom:26px;position:relative;z-index:1}
+.contact-visual .cv-btns{display:flex;gap:12px;flex-wrap:wrap;position:relative;z-index:1}
+.contact-visual .btn-ghost{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.35);color:#fff}
+.contact-visual .btn-ghost:hover{background:rgba(255,255,255,.25);color:#fff}
+.footer{margin-top:40px;background:var(--surface);border-top:1px solid var(--border)}
+.footer-inner{max-width:1280px;margin:0 auto;padding:34px 24px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.footer .fnav{display:flex;gap:18px;flex-wrap:wrap;margin-left:auto}
+.footer .fnav a{font-size:13.5px;font-weight:600;color:var(--text-2);transition:.18s}
+.footer .fnav a:hover{color:var(--primary)}
+.footer .copy{width:100%;text-align:center;font-size:12.5px;color:var(--text-3);padding-top:16px;border-top:1px solid var(--border);margin-top:8px}
+.modal-overlay{position:fixed;inset:0;z-index:200;background:rgba(15,23,42,.55);backdrop-filter:blur(7px);
+  display:none;align-items:center;justify-content:center;padding:20px;animation:fadeIn .22s}
+.modal-overlay.open{display:flex}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.modal{background:#fff;border-radius:22px;width:100%;max-width:640px;max-height:92vh;overflow-y:auto;box-shadow:var(--shadow-lg);
+  animation:popIn .35s cubic-bezier(.22,1.2,.36,1) both}
+@keyframes popIn{from{opacity:0;transform:translateY(26px) scale(.96)}to{opacity:1;transform:none}}
+.modal-img{height:280px;background:var(--surface-2);position:relative}
+.modal-img img{width:100%;height:100%;object-fit:cover;border-radius:22px 22px 0 0}
+.modal-cat{position:absolute;bottom:14px;left:18px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);
+  padding:6px 15px;border-radius:99px;font-size:11.5px;font-weight:700;color:var(--primary);box-shadow:var(--shadow-sm);text-transform:capitalize}
+.modal-x{position:absolute;top:14px;right:14px;width:38px;height:38px;border-radius:12px;background:rgba(255,255,255,.92);
+  backdrop-filter:blur(8px);color:var(--text);font-size:16px;box-shadow:var(--shadow-md);transition:.18s;z-index:2}
+.modal-x:hover{background:var(--red);color:#fff}
+.modal-body{padding:26px}
+.modal-body h3{font-size:21px;font-weight:800;letter-spacing:-.4px;margin-bottom:12px}
+.modal-body .m-desc{color:var(--text-2);font-size:14px;line-height:1.75;margin-bottom:18px}
+.modal-link-row{display:flex;align-items:center;gap:10px;background:var(--surface-2);border:1.5px solid var(--border);
+  border-radius:13px;padding:13px 16px;margin-bottom:20px;font-size:13px}
+.modal-link-row .lk{flex:1;color:var(--blue);font-weight:600;word-break:break-all}
+.modal-foot{display:flex;gap:12px;flex-wrap:wrap}
+.to-top{position:fixed;bottom:24px;right:24px;width:46px;height:46px;border-radius:14px;background:var(--primary-grad);
+  color:#fff;font-size:18px;box-shadow:var(--shadow-glow);display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:.25s;z-index:90}
+.to-top.show{opacity:1;pointer-events:auto}
+.to-top:hover{transform:translateY(-4px)}
+.wa-fab{position:fixed;bottom:24px;left:24px;width:52px;height:52px;border-radius:50%;background:var(--green-grad);
+  display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 10px 26px -6px rgba(16,185,129,.55);
+  z-index:90;transition:.2s;animation:floaty 4s ease-in-out infinite}
+.wa-fab:hover{transform:scale(1.12)}
+@media (max-width:1020px){
+  .hero-inner{grid-template-columns:1fr;gap:40px}
+  .hero-visual{max-width:520px}
+  .about-grid,.contact-wrap{grid-template-columns:1fr}
+  .hsearch input{width:150px}
+  .hsearch input:focus{width:180px}
+}
+@media (max-width:860px){
+  .nav{display:none}
+  .burger{display:flex}
+  .header .hbtn{display:none}
+  .hsearch{display:none}
+  .mobile-menu .mm-search{padding:6px 8px 10px}
+  .mobile-menu .mm-search input{width:100%;padding:12px 15px;border:1.5px solid var(--border);border-radius:12px;background:var(--surface-2);outline:none;font-size:14px}
+  .mobile-menu .mm-search input:focus{border-color:var(--primary);background:#fff;box-shadow:0 0 0 4px rgba(99,102,241,.12)}
+}
+@media (max-width:560px){
+  .hero{padding-top:120px}
+  .hero-btns .btn{flex:1;min-width:130px}
+  .cat-section{padding:20px}
+  .section{padding:40px 16px}
+  .modal-img{height:200px}
+  .header .bar{padding:12px 16px;border-radius:0 0 18px 18px}
+  .hero-stats{gap:10px}
+  .hstat{flex:1;min-width:90px;padding:12px 14px}
+  .contact-btns .btn{flex:1}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="bar">
+    <a href="#dashboard" class="logo"><span class="mark">T7</span>T718</a>
+    <nav class="nav" id="mainNav">
+      <a href="#dashboard" class="active" data-nav="dashboard">Dashboard</a>
+      <a href="#projects" data-nav="projects">Projects</a>
+      <a href="#about" data-nav="about">About</a>
+      <a href="#contact" data-nav="contact">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <div class="hsearch">
+        <span class="s-ico">🔍</span>
+        <input type="text" id="headerSearch" placeholder="Search projects..." autocomplete="off">
+      </div>
+      <a class="btn btn-green btn-sm hbtn" href="https://wa.me/919449606354" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
+      <a class="btn btn-primary btn-sm hbtn" href="#contact">✉️ Contact</a>
+      <button class="burger" id="burger" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#dashboard">📊 Dashboard</a>
+  <a href="#projects">🗂️ Projects</a>
+  <a href="#about">👤 About</a>
+  <a href="#contact">📞 Contact</a>
+  <div class="mm-search">
+    <input type="text" id="mobileSearch" placeholder="🔍 Search projects..." autocomplete="off">
+  </div>
+  <div class="mm-actions">
+    <a class="btn btn-green btn-sm" href="https://wa.me/919449606354" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
+    <a class="btn btn-primary btn-sm" href="#contact">✉️ Contact</a>
+  </div>
+</div>
+
+<section class="hero" id="dashboard">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge"><span class="dot"></span> Available for freelance work</div>
+      <h1>T718 — <span class="grad">Creative Freelancer</span></h1>
+      <p class="sub">Websites, Ads, Banners, Logos, Templates &amp; Digital Creative Work — crafted with care, delivered on time.</p>
+      <div class="hero-btns">
+        <a class="btn btn-primary" href="#projects">🚀 View Projects</a>
+        <a class="btn btn-green" href="https://wa.me/919449606354" target="_blank" rel="noopener noreferrer">💬 WhatsApp Me</a>
+        <a class="btn btn-ghost" href="tel:+919449606354">📞 Call Me</a>
+      </div>
+      <div class="hero-stats" id="heroStats">
+        <div class="hstat"><div class="n" id="statTotal">0</div><div class="l">Projects</div></div>
+        <div class="hstat"><div class="n" id="statCats">0</div><div class="l">Categories</div></div>
+        <div class="hstat"><div class="n" id="statWebsites">0</div><div class="l">Websites</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="dash-card">
+        <div class="dc-head">
+          <span class="cir" style="background:#f87171"></span>
+          <span class="cir" style="background:#fbbf24"></span>
+          <span class="cir" style="background:#34d399"></span>
+          <span class="dc-title">T718 · Live Portfolio</span>
+        </div>
+        <div class="dc-row">
+          <div class="ic" style="background:linear-gradient(135deg,#3b82f6,#60a5fa)">🌐</div>
+          <div class="tx"><b>Websites</b><span>Modern, responsive web builds</span></div>
+          <span class="arrow">→</span>
+        </div>
+        <div class="dc-row">
+          <div class="ic" style="background:linear-gradient(135deg,#ec4899,#f472b6)">📣</div>
+          <div class="tx"><b>Advertisements</b><span>Eye-catching ad creatives</span></div>
+          <span class="arrow">→</span>
+        </div>
+        <div class="dc-row">
+          <div class="ic" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa)">✨</div>
+          <div class="tx"><b>Logos &amp; Branding</b><span>Memorable brand identities</span></div>
+          <span class="arrow">→</span>
+        </div>
+        <div class="dc-row">
+          <div class="ic" style="background:linear-gradient(135deg,#f59e0b,#fbbf24)">🎬</div>
+          <div class="tx"><b>Video Editing</b><span>Clean, engaging edits</span></div>
+          <span class="arrow">→</span>
+        </div>
+      </div>
+      <div class="float-chip fc1">⚡ Fast Delivery</div>
+      <div class="float-chip fc2">✅ Quality Work</div>
+    </div>
+  </div>
+</section>
+
+<div class="search-dock" id="searchDock">
+  <div class="box">
+    <div class="head">
+      <h3>🔍 Search Results <span class="q" id="searchQuery"></span></h3>
+      <button class="close-x" id="searchClose" aria-label="Close search">✕</button>
+    </div>
+    <div id="searchResults"></div>
+  </div>
+</div>
+
+<section class="section" id="projects">
+  <div class="section-head">
+    <span class="kicker">🗂️ Portfolio</span>
+    <h2>My Projects <span class="em">🚀</span></h2>
+    <p>Browse my work by category — updated live, straight from my project database.</p>
+  </div>
+  <div class="load-error" id="loadError">
+    ⚠️ <strong>Project data could not be loaded right now.</strong> The site will keep trying its backup sources — please refresh in a moment.
+  </div>
+  <div id="categoriesRoot"></div>
+</section>
+
+<section class="section" id="about">
+  <div class="section-head">
+    <span class="kicker">👤 About</span>
+    <h2>About T718 <span class="em">💡</span></h2>
+    <p>A dedicated freelancer focused on clean design, fast delivery and client satisfaction.</p>
+  </div>
+  <div class="about-grid">
+    <div class="about-card">
+      <h3>🙋 Who I Am</h3>
+      <p>I'm the freelancer behind <strong>T718</strong> — I help businesses and individuals build their digital presence with professional websites, striking advertisements, memorable logos and creative digital work.</p>
+      <p>Every project is handled personally: from the first idea to the final delivery. No middlemen, no delays — just direct, honest freelance work.</p>
+      <p>Have a project in mind? Reach out via WhatsApp or a quick call — I usually reply fast. ⚡</p>
+    </div>
+    <div class="about-card">
+      <h3>🛠️ What I Do</h3>
+      <div class="svc-list">
+        <div class="svc-item"><div class="ic" style="background:linear-gradient(135deg,#3b82f6,#60a5fa)">🌐</div><div><b>Websites</b><span>Responsive, modern websites</span></div></div>
+        <div class="svc-item"><div class="ic" style="background:linear-gradient(135deg,#ec4899,#f472b6)">📣</div><div><b>Advertisements</b><span>High-converting ad creatives</span></div></div>
+        <div class="svc-item"><div class="ic" style="background:linear-gradient(135deg,#f59e0b,#fbbf24)">🎌</div><div><b>Banners</b><span>Web &amp; social media banners</span></div></div>
+        <div class="svc-item"><div class="ic" style="background:linear-gradient(135deg,#06b6d4,#22d3ee)">✨</div><div><b>Logos</b><span>Unique brand identity design</span></div></div>
+        <div class="svc-item"><div class="ic" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa)">📐</div><div><b>Templates</b><span>Ready-to-use design templates</span></div></div>
+        <div class="svc-item"><div class="ic" style="background:linear-gradient(135deg,#10b981,#34d399)">🖼️</div><div><b>Thumbnails</b><span>Click-worthy video thumbnails</span></div></div>
+        <div class="svc-item"><div class="ic" style="background:linear-gradient(135deg,#ef4444,#f87171)">🎬</div><div><b>Video Editing</b><span>Clean, engaging video edits</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="section-head">
+    <span class="kicker">📞 Contact</span>
+    <h2>Let's Work Together <span class="em">🤝</span></h2>
+    <p>Call me directly or start a WhatsApp chat — whichever is easier for you.</p>
+  </div>
+  <div class="contact-wrap">
+    <div class="contact-card">
+      <h3>📱 Get In Touch</h3>
+      <p>Available for new projects. Fast responses on both phone and WhatsApp.</p>
+      <div class="contact-rows">
+        <div class="contact-row">
+          <div class="ic" style="background:var(--blue-grad)">📞</div>
+          <div class="tx"><span>Phone (Call)</span><b>+91 94496 06354</b></div>
+        </div>
+        <div class="contact-row">
+          <div class="ic" style="background:var(--green-grad)">💬</div>
+          <div class="tx"><span>WhatsApp</span><b>+91 94496 06354</b></div>
+        </div>
+        <div class="contact-row">
+          <div class="ic" style="background:var(--primary-grad)">🕐</div>
+          <div class="tx"><span>Availability</span><b>Open for new projects</b></div>
+        </div>
+      </div>
+      <div class="contact-btns">
+        <a class="btn btn-blue" href="tel:+919449606354">📞 Call Me</a>
+        <a class="btn btn-green" href="https://wa.me/919449606354" target="_blank" rel="noopener noreferrer">💬 WhatsApp Me</a>
+      </div>
+      <div class="wa-note">💡 The WhatsApp button opens a chat directly with <strong>+91 94496 06354</strong> using the correct international format (<code style="font-family:ui-monospace,monospace">wa.me/919449606354</code>).</div>
+    </div>
+    <div class="contact-visual">
+      <h3>Have an idea? 💭<br>Let's build it together.</h3>
+      <p>Websites, ads, logos, banners or any creative work — send me a message and let's discuss your project. Straightforward pricing, honest timelines, quality delivery.</p>
+      <div class="cv-btns">
+        <a class="btn btn-ghost" href="https://wa.me/919449606354?text=Hi%20T718!%20I%20have%20a%20project%20in%20mind." target="_blank" rel="noopener noreferrer">💬 Start WhatsApp Chat</a>
+        <a class="btn btn-ghost" href="tel:+919449606354">📞 Call Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <a href="#dashboard" class="logo"><span class="mark">T7</span>T718</a>
+    <nav class="fnav">
+      <a href="#dashboard">Dashboard</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="copy">© <span id="year"></span> T718 — Creative Freelancer · All rights reserved.</div>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="projectModal">
+  <div class="modal">
+    <div class="modal-img">
+      <img id="mImg" src="" alt="">
+      <button class="modal-x" id="modalClose" aria-label="Close">✕</button>
+      <span class="modal-cat" id="mCat"></span>
+    </div>
+    <div class="modal-body">
+      <h3 id="mTitle"></h3>
+      <p class="m-desc" id="mDesc"></p>
+      <div class="modal-link-row" id="mLinkRow" style="display:none">
+        <span>🔗</span><span class="lk" id="mLink"></span>
+      </div>
+      <div class="modal-foot">
+        <a class="btn btn-primary" id="mOpenBtn" href="#" target="_blank" rel="noopener noreferrer">🚀 Open Project</a>
+        <a class="btn btn-green" href="https://wa.me/919449606354?text=Hi%20T718!%20I%20liked%20your%20work." target="_blank" rel="noopener noreferrer">💬 WhatsApp Me</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<a class="wa-fab" href="https://wa.me/919449606354" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">💬</a>
+<button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ===== YOUR GOOGLE SHEETS CONNECTION (pre-configured) ===== */
+  var API_URL = 'https://script.google.com/macros/s/AKfycbyhyb_P9OziEVGXGy1Op-gx-NNjyh-sy14GBvfLUJyRIh_QH4fHf-uwNjj_1kx2tH0TpA/exec';
+
+  var CATEGORIES = [
+    {value:'websites',      label:'Websites',        icon:'🌐', cls:'linear-gradient(135deg,#3b82f6,#60a5fa)',  desc:'Modern, responsive websites — from landing pages to full business sites. Each project opens in a new tab.'},
+    {value:'advertisements',label:'Advertisements',  icon:'📣', cls:'linear-gradient(135deg,#ec4899,#f472b6)',  desc:'Eye-catching advertisement creatives designed to grab attention and convert.'},
+    {value:'banners',       label:'Banners',         icon:'🎌', cls:'linear-gradient(135deg,#f59e0b,#fbbf24)',  desc:'Web banners, social media covers and promotional banners in all standard sizes.'},
+    {value:'logos',         label:'Logos',           icon:'✨', cls:'linear-gradient(135deg,#06b6d4,#22d3ee)',  desc:'Unique, memorable logo designs that give your brand a professional identity.'},
+    {value:'templates',     label:'Templates',       icon:'📐', cls:'linear-gradient(135deg,#8b5cf6,#a78bfa)',  desc:'Ready-to-use design templates — resumes, social posts, presentations and more.'},
+    {value:'thumbnails',    label:'Thumbnails',      icon:'🖼️', cls:'linear-gradient(135deg,#10b981,#34d399)', desc:'Click-worthy YouTube and video thumbnails designed to boost your views.'},
+    {value:'video-editing', label:'Video Editing',   icon:'🎬', cls:'linear-gradient(135deg,#ef4444,#f87171)',  desc:'Professional video editing — cuts, transitions, captions, color and sound.'},
+    {value:'other',         label:'Other Projects',  icon:'📦', cls:'linear-gradient(135deg,#64748b,#94a3b8)',  desc:'Other creative digital work that doesn\'t fit the boxes above.'}
+  ];
+  var CAT_MAP = {};
+  CATEGORIES.forEach(function(c){ CAT_MAP[c.value] = c; });
+
+  var FALLBACK_IMG = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(
+    '<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360"><rect width="100%" height="100%" fill="#e8ecf4"/>' +
+    '<text x="50%" y="47%" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" fill="#9aa5b8">Image not available</text>' +
+    '<text x="50%" y="58%" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#b6bfce">T718 Portfolio</text></svg>'
+  );
+
+  var projects = [];
+  var projectsLoaded = false;
+
+  function $(id){ return document.getElementById(id); }
+  function esc(str){
+    return String(str == null ? '' : str)
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+      .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+  }
+  function catOf(p){ return CAT_MAP[p.category] ? CAT_MAP[p.category] : CAT_MAP['other']; }
+
+  function buildCategorySections(){
+    $('categoriesRoot').innerHTML = CATEGORIES.map(function(c){
+      return '<section class="cat-section" id="cat-' + c.value + '">' +
+        '<div class="cat-top">' +
+          '<div class="cat-ico" style="background:' + c.cls + '">' + c.icon + '</div>' +
+          '<h3>' + esc(c.label) + '</h3>' +
+          '<span class="count-pill" id="count-' + c.value + '">0</span>' +
+        '</div>' +
+        '<p class="cat-desc">' + esc(c.desc) + '</p>' +
+        '<div class="projects-grid" id="grid-' + c.value + '"></div>' +
+        '<div class="empty-state" id="empty-' + c.value + '">' +
+          '<div class="big">' + c.icon + '</div>' +
+          '<h4>No ' + esc(c.label.toLowerCase()) + ' yet</h4>' +
+          '<p>New ' + esc(c.label.toLowerCase()) + ' will appear here soon — check back later!</p>' +
+        '</div>' +
+      '</section>';
+    }).join('');
+  }
+
+  function projectCard(p, delay){
+    var hasLink = p.link && String(p.link).trim() !== '';
+    return '<article class="p-card" data-id="' + esc(p.id) + '" style="animation-delay:' + (delay || 0) + 'ms" tabindex="0" role="button" aria-label="' + esc(p.title) + '">' +
+      '<div class="p-img"><img src="' + esc(p.image) + '" alt="' + esc(p.title) + '" loading="lazy" ' +
+        'onerror="this.onerror=null;this.src=\'' + FALLBACK_IMG + '\'"></div>' +
+      '<div class="p-body">' +
+        '<div class="p-title">' + esc(p.title) + '</div>' +
+        '<div class="p-desc">' + esc(p.description) + '</div>' +
+      '</div>' +
+      '<div class="p-foot">' +
+        (hasLink
+          ? '<a class="btn btn-primary btn-sm" style="width:100%" href="' + esc(p.link) + '" target="_blank" rel="noopener noreferrer" data-stop>🚀 View Project</a>'
+          : '<button class="btn btn-ghost btn-sm" style="width:100%" data-stop>👁️ View Details</button>') +
+      '</div>' +
+    '</article>';
+  }
+
+  function renderAll(){
+    CATEGORIES.forEach(function(c){
+      var list = projects.filter(function(p){ return catOf(p).value === c.value; });
+      $('count-' + c.value).textContent = list.length;
+      $('grid-' + c.value).innerHTML = list.map(function(p, i){ return projectCard(p, i * 60); }).join('');
+      $('empty-' + c.value).style.display = list.length === 0 ? 'block' : 'none';
+    });
+    $('statTotal').textContent = projects.length;
+    var usedCats = CATEGORIES.filter(function(c){
+      return projects.some(function(p){ return catOf(p).value === c.value; });
+    }).length;
+    $('statCats').textContent = usedCats;
+    $('statWebsites').textContent = projects.filter(function(p){ return catOf(p).value === 'websites'; }).length;
+
+    document.querySelectorAll('.p-card').forEach(function(card){
+      card.addEventListener('click', function(e){
+        if(e.target.closest('[data-stop]')){ openModal(card.getAttribute('data-id')); return; }
+        openModal(card.getAttribute('data-id'));
+      });
+      card.addEventListener('keydown', function(e){
+        if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openModal(card.getAttribute('data-id')); }
+      });
+    });
+  }
+
+  /* ============ SEARCH ============ */
+  function matches(p, term){
+    term = term.toLowerCase();
+    var cat = catOf(p);
+    return (p.title || '').toLowerCase().indexOf(term) !== -1 ||
+           (p.description || '').toLowerCase().indexOf(term) !== -1 ||
+           (p.category || '').toLowerCase().indexOf(term) !== -1 ||
+           cat.label.toLowerCase().indexOf(term) !== -1;
+  }
+
+  function runSearch(term){
+    term = (term || '').trim();
+    var dock = $('searchDock');
+    if(!term){ dock.classList.remove('show'); return; }
+    $('searchQuery').textContent = 'for "' + term + '"';
+    var results = projectsLoaded ? projects.filter(function(p){ return matches(p, term); }) : [];
+    if(results.length === 0){
+      $('searchResults').innerHTML = '<div class="no-results" style="grid-column:1/-1">no results found</div>';
+    } else {
+      $('searchResults').innerHTML = results.map(function(p, i){ return projectCard(p, i * 40); }).join('');
+      $('searchResults').querySelectorAll('.p-card').forEach(function(card){
+        card.addEventListener('click', function(){ openModal(card.getAttribute('data-id')); });
+      });
+    }
+    dock.classList.add('show');
+    dock.scrollIntoView({behavior:'smooth', block:'nearest'});
+  }
+
+  $('headerSearch').addEventListener('input', function(){ runSearch(this.value); });
+  $('mobileSearch').addEventListener('input', function(){ runSearch(this.value); });
+  $('searchClose').addEventListener('click', function(){
+    $('searchDock').classList.remove('show');
+    $('headerSearch').value = '';
+    $('mobileSearch').value = '';
+  });
+
+  /* ============ MODAL ============ */
+  function openModal(id){
+    var p = projects.find(function(x){ return String(x.id) === String(id); });
+    if(!p) return;
+    var cat = catOf(p);
+    $('mImg').src = p.image || FALLBACK_IMG;
+    $('mImg').onerror = function(){ this.onerror = null; this.src = FALLBACK_IMG; };
+    $('mImg').alt = p.title || 'Project image';
+    $('mCat').textContent = cat.icon + ' ' + cat.label;
+    $('mTitle').textContent = p.title || 'Untitled Project';
+    $('mDesc').textContent = p.description || 'No description available.';
+    var hasLink = p.link && String(p.link).trim() !== '';
+    if(hasLink){
+      $('mLinkRow').style.display = 'flex';
+      $('mLink').textContent = String(p.link).replace(/^https?:\/\//, '');
+      $('mOpenBtn').href = p.link;
+      $('mOpenBtn').style.display = 'inline-flex';
+    } else {
+      $('mLinkRow').style.display = 'none';
+      $('mOpenBtn').style.display = 'none';
+    }
+    $('projectModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(){
+    $('projectModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  $('modalClose').addEventListener('click', closeModal);
+  $('projectModal').addEventListener('click', function(e){ if(e.target === this) closeModal(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeModal(); });
+
+  /* ============ NAV / MISC ============ */
+  var burger = $('burger'), mobileMenu = $('mobileMenu');
+  burger.addEventListener('click', function(){ mobileMenu.classList.toggle('open'); });
+  mobileMenu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ mobileMenu.classList.remove('open'); });
+  });
+  document.addEventListener('click', function(e){
+    if(mobileMenu.classList.contains('open') && !mobileMenu.contains(e.target) && !burger.contains(e.target)){
+      mobileMenu.classList.remove('open');
+    }
+  });
+
+  var sections = ['dashboard','projects','about','contact'];
+  var navLinks = document.querySelectorAll('[data-nav]');
+  function onScroll(){
+    var pos = window.scrollY + 120;
+    var current = 'dashboard';
+    sections.forEach(function(id){
+      var el = $(id);
+      if(el && el.offsetTop <= pos) current = id;
+    });
+    navLinks.forEach(function(a){
+      a.classList.toggle('active', a.getAttribute('data-nav') === current);
+    });
+    $('toTop').classList.toggle('show', window.scrollY > 500);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  $('toTop').addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+  $('year').textContent = new Date().getFullYear();
+
+  /* ============ DATA LOADING (Sheet → projects.json fallback) ============ */
+  buildCategorySections();
+
+  function applyData(list){
+    projects = (list || []).filter(function(p){ return p && typeof p === 'object' && p.title && p.image; });
+    projectsLoaded = true;
+    $('loadError').classList.remove('show');
+    renderAll();
+    var t = $('headerSearch').value || $('mobileSearch').value;
+    if(t && t.trim()) runSearch(t);
+  }
+
+  function fromSheet(){
+    return fetch(API_URL + '?action=list', {cache:'no-store'})
+      .then(function(r){ if(!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function(data){
+        if(!data.ok || !Array.isArray(data.projects)) throw new Error('bad data');
+        return data.projects;
+      });
+  }
+
+  function fromJsonFile(){
+    return fetch('projects.json', {cache:'no-store'})
+      .then(function(r){ if(!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function(data){
+        if(!data || !Array.isArray(data.projects)) throw new Error('bad structure');
+        return data.projects;
+      });
+  }
+
+  fromSheet()
+    .then(applyData)
+    .catch(function(){
+      return fromJsonFile().then(applyData); /* sheet unreachable → try projects.json backup */
+    })
+    .catch(function(){
+      projects = [];
+      projectsLoaded = false;
+      $('loadError').classList.add('show');
+      renderAll();
+    });
+})();
+</script>
+</body>
+</html>
